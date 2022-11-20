@@ -1,0 +1,61 @@
+﻿@model Cart
+
+<h1 class="display-4">Your Сart</h1>
+<div class="text-center">
+    @{
+        decimal totalPrice = 0;
+        @foreach (var item in Model.ListCartItem)
+        {
+            totalPrice += item.Price;
+        }
+    }
+    Total Price: @totalPrice
+    
+</div>
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Book Name
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model.ListCartItem)
+                {
+                    <tr>
+                            <td width=50%>
+                                @item.book.Name
+                            </td>
+                            <td width=30%>
+                                @item.book.Category
+                            </td>
+                            <td width=20%>
+                                @item.book.Price
+                            </td>
+                            <td>
+                    <a asp-controller="Cart" asp-action="RemoveFromCart" asp-route-Id="@item.Id" class="btn btn-primary">
+                                    Delete
+                                </a>
+                            </td>
+                    </tr>
+                }
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+            Back To The Store
+        </a>
+        <div class="text-center">
+            <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
+                Checkout
+            </a>
+        </div>
+    </tbody>
+</table>

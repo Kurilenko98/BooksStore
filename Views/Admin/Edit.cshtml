@@ -1,0 +1,47 @@
+﻿@model BooksStore.Models.Book
+
+
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_AdminLayout";
+}
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+<h1>Edit</h1>
+
+<h4>Book</h4>
+<hr />
+ @using (Html.BeginForm("Edit", "Admin"))
+    {
+<div class="row">
+    <div class="col-md-4">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <form asp-action="Edit" method="post">
+                <div class="form-group">
+                    <label>Name:</label><input asp-for="Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Category:</label><input asp-for="Category" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Price:</label><input asp-for="Price" class="form-control" />
+                </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+}
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

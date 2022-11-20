@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_AdminLayout";
+}
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<div class="text-center">
+    <h1 class="display-4">Book List</h1>
+    <table class="table table-bordered table-striped" style="width=100%">
+        <thead>
+            <tr>
+                <th>
+                    Book Name
+                </th>
+                <th>
+                    Category
+                </th>
+                <th>
+                    Price
+                </th>
+                 <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td width=50%>
+                        @Html.ActionLink(item.Name, "Edit", new { item.Id })
+                    </td>
+                    <td width=30%>
+                        @item.Category
+                    </td>
+                    <td width=20%>
+                        @item.Price
+                    </td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="DeleteBook" asp-route-Id="@item.Id" class="btn btn-primary">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <div class="panel-footer">
+            <a asp-controller="Admin" asp-action="Create" class="btn btn-primary">Create</a>
+        </div>
+    </table>
+</div>
