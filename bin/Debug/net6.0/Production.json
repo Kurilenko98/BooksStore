@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server= KAMPYDAXTEP; Database=BooksStore; Trusted_Connection=True;",
+    "IdentityConnection": "Server= KAMPYDAXTEP; Database=Identity; Trusted_Connection=True;"
+  }
+}
