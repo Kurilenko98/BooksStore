@@ -1,7 +1,7 @@
 # BooksStore
 This is a digital commerce application for the sale of goods (books) created for educational purposes.
 The application was created on the asp.net platform, using the mvc pattern. To store data about goods (books) and orders, it is used SQL Server.
-Authentication and authorization of deployment using Microsoft identity.
+Authentication and authorization is implemented using a Microsoft identity.
 ## Functionality
 On the start page, the user sees a list of products (books)and can add them to the cart using the button.
 ![](https://github.com/Kyrilenko/BooksStore/blob/main/picturesToReadMe/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_20221121_045844.png?raw=true)
